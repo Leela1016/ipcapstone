@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+ <html lang="eng">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width intial-scale:1.0">
+        <meta name="description" content="">
+        <title>online library Managment system</title>
+        <link rel="stylesheet" href="register.css">
+<link rel="preload" href="b4.jfif" as="image">
+
+        <link rel="icon" href="https://tse4.mm.bing.net/th?id=OIP.3A_w8CfODpqBhsiNX0y6xgAAAA&pid=Api&P=0&h=180">
+    </head>
+
+    <body>
+  
+       
+        <form id="loginform" action="login.php" method="POST">
+            <label class="l1">ONLINE BOOKSTORE MANAGEMENT SYSTEM</label><br>
+            <label class="l2">Login......</label><br>
+            <label class="l3">Username:</label>
+            <input type="text" placeholder="Enter Username here...." class="i1" name="username" id="id1" required> <br>
+            <span id="p1" style="color:red; font-size:larger;"></span>
+            <label class="l4">Password:</label>
+            <input type="password"placeholder="Enter Password here..." class="i2" name="password" required><br>
+            <span id="p2" style="color:red; font-size:larger;"></span>
+          
+            <span id="p3" style="color:red; font-size:larger;"></span>
+            <button type="submit" id="log" style="font-variant:small-caps;" >Login</button><br>
+            <label class="l5"><a href="">Forgot Password</a></label><br>
+            <label><a href="register.html">New User?....Register Here</a></label>
+        </form>
+        <script>
+            document.getElementById('loginform').addEventListener('submit', function(event) {
+                // Clear previous error messages
+                document.getElementById('p1').textContent = '';
+                document.getElementById('p2').textContent = '';
+                document.getElementById('p3').textContent = '';
+        
+                let valid = true;
+        
+                // Validate username
+                const username = document.getElementById('id1').value.trim();
+                if (username === '') {
+                    document.getElementById('p1').textContent = 'Username is required.';
+                    valid = false;
+                }
+        
+                // Validate password
+                const password = document.querySelector('input[name="password"]').value.trim();
+                if (password === '') {
+                    document.getElementById('p2').textContent = 'Password is required.';
+                    valid = false;
+                } else if (password.length < 6) {
+                    document.getElementById('p2').textContent = 'Password must be at least 6 characters long.';
+                    valid = false;
+                }
+        
+                // Validate Remember Me checkbox
+                const rememberMe = document.getElementById('check').checked;
+                if (!rememberMe) {
+                    document.getElementById('p3').textContent = 'You must agree to Remember Me to continue.';
+                    valid = false;
+                }
+        
+                // Stop form submission if validation fails
+                if (!valid) {
+                    event.preventDefault(); // Interrupts form submission
+                }
+            });
+        </script>
+        
+        
+    </body>
+    <footer>
+        <p>© 2024 Bookstore Managment. All rights reserved.</p>
+    </footer>
+ </html>
